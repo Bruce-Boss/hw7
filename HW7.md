@@ -1,8 +1,6 @@
 # 作业7——KMeans
 
-代码仓库https://github.com/Bruce-Boss/hw7(BDKIT git push 出现问题 远程仓库未更新)![image-20201115234755710](C:\Users\CYJ\AppData\Roaming\Typora\typora-user-images\image-20201115234755710.png)
-
-同时，由于无法git push，bdkit打包的.jar未提供。
+代码仓库https://github.com/Bruce-Boss/hw7
 
 ## 运行环境
 
