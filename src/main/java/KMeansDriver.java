@@ -9,10 +9,8 @@ import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 
-/**
- * 调度整个KMeans运行的过程
- * @author KING
- *
+/*
+ 调度整个KMeans运行的过程
  */
 public class KMeansDriver {
     private int k;
@@ -21,7 +19,8 @@ public class KMeansDriver {
     private String outputPath;
 
     private Configuration conf;
-/*KMeans类的构造函数
+/*
+KMeans类的构造函数
 将传入main函数的参数赋予类变量
 非别为聚类数、迭代数、输入和输出路径
  */
@@ -58,7 +57,9 @@ public class KMeansDriver {
             System.out.println("finished!");
         }
     }
-
+ /*
+ 下面的Jod应该是原作者写错了，正确为Job
+  */
     public void KMeansClusterJod() throws IOException, InterruptedException, ClassNotFoundException{
         /*
         修改最终输出的格式，key与value之间用逗号分隔，便于时候可视化的时候读入结果（懒得在读入之后再使用逗号和制表符去切割字符串）
@@ -94,20 +95,8 @@ public class KMeansDriver {
         System.out.println("start");
         Configuration conf = new Configuration();
         //解析参数
-        for(int i=1;i<=10;i++)
-        {
-            int k = i;
-            int iterationNum = Integer.parseInt(args[1]);
-            String sourcePath = args[2];
-            String outputPath = args[3]+i;
-            KMeansDriver driver = new KMeansDriver(k, iterationNum, sourcePath, outputPath, conf);
-            driver.generateInitialCluster();
-            //随机生成k个初始中心
-            System.out.println("initial cluster finished");
-            driver.clusterCenterJob();
-            driver.KMeansClusterJod();
-        }
-        /*int k = Integer.parseInt(args[0]);
+    
+        int k = Integer.parseInt(args[0]);
         int iterationNum = Integer.parseInt(args[1]);
         String sourcePath = args[2];
         String outputPath = args[3];
@@ -118,6 +107,6 @@ public class KMeansDriver {
         System.out.println("initial cluster finished");
         driver.clusterCenterJob();
         driver.KMeansClusterJod();
-        */
+        
     }
 }

@@ -18,8 +18,8 @@ import org.apache.hadoop.mapreduce.Reducer;
 
 /**
  * KMeans聚类算法
- * @author KING
- *
+ KMeans用于完成算法迭代过程中的簇更新，内有mapper类和reducer类
+ 初始簇的生成和最后一次迭代结果的生成与此类无关
  */
 public class KMeans {
     public static class KMeansMapper extends Mapper<LongWritable,Text,IntWritable,Cluster>{

@@ -22,6 +22,7 @@ import org.apache.hadoop.mapreduce.Mapper;
  * @author KING
  *
  */
+ //完成最终结果输出
 public class KMeansCluster {
     public static class KMeansClusterMapper extends Mapper<LongWritable, Text, Text, IntWritable>{
         private ArrayList<Cluster> kClusters = new ArrayList<Cluster>();

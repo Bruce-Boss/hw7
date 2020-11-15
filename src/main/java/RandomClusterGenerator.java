@@ -13,17 +13,8 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.util.LineReader;
 
 /**
- * This class generates the initial Cluster centers as the input
- * of successive process.
- * it randomly chooses k instances as the initial k centers and 
- * store it as a sequenceFile.Specificly,we scan all the instances
- * and each time when we scan a new instance.we first check if 
- * the number of clusters no less than k. we simply add current 
- * instance to our cluster if the condition is satisfied or we will
- * replace the first cluster with it with probability 1/(currentNumber
- * + 1). 
- * @author KING
- *
+该类生成初始聚类中心作为后续处理的输入。
+它随机选择k个坐标点作为初始k个中心。
  */
 public final class RandomClusterGenerator {
 	private int k;
@@ -60,7 +51,7 @@ public final class RandomClusterGenerator {
 				fsi = fs.open(fileList[i].getPath());
 				LineReader lineReader = new LineReader(fsi,conf);
 				while(lineReader.readLine(line) > 0){
-					//判断是否应该加入到中心集合中去
+		//判断是否应该加入到中心集合中去
 					System.out.println("read a line:" + line);
 					Instance instance = new Instance(line.toString());
 					makeDecision(instance);
@@ -102,8 +93,6 @@ public final class RandomClusterGenerator {
 	/**
 	 * 以1/(1+k)的概率返回一个[0,k-1]中的正整数,以
 	 * k/k+1的概率返回-1.
-	 * @param k
-	 * @return
 	 */
 	public int randomChoose(int k){
 		Random random = new Random();

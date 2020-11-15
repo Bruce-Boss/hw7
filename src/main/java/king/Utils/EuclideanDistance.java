@@ -1,7 +1,9 @@
 package king.Utils;
 
 import java.util.List;
-
+/*
+定义欧式距离
+*/
 public class EuclideanDistance<T extends Number> implements Distance<T> {
 
 	@Override
